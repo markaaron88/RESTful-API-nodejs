@@ -8,4 +8,4 @@ const SpeakerSchema = new Schema({
   bio: String,
 });
 
-module.exports = SpeakerSchema;
+module.exports.SpeakerSchema = SpeakerSchema;

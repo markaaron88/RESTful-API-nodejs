@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const Attendee = require("../models/attendee");
 const Room = require("../models/room");
 
-//Routes
-
 //Gets the list of all attendees
 router.get("/", async (req, res) => {
   try {

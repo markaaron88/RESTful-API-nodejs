@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const SpeakerSchema = require("./speaker");
-const AttendeeSchema = require("./attendee");
+const {SpeakerSchema} = require("./speaker");
+const {AttendeeSchema} = require("./attendee");
 
 const RoomSchema = new Schema({
   title: String,
@@ -10,6 +10,5 @@ const RoomSchema = new Schema({
   attendees: [AttendeeSchema],
 });
 
-mongoose.model("Rooms", RoomSchema);
-
-module.exports = RoomSchema;
+module.exports = mongoose.model("Rooms", RoomSchema);
+module.exports.RoomSchema = RoomSchema;
