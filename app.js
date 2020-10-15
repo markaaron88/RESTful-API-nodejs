@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const talksRoutes = require("./api/routes/talks");
+const roomsRoutes = require("./api/routes/rooms");
 const attendeesRoutes = require("./api/routes/attendees");
 
 //connect to Mongoose Db
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 });
 
 //Routes which should handle requests
-app.use("/talks", talksRoutes);
+app.use("/rooms", roomsRoutes);
 app.use("/attendees", attendeesRoutes);
 
 //handle requests that reach this line(Err Handling)

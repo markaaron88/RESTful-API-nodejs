@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Json Object 
-const AttendesSchema = new Schema({
+const AttendeeSchema = new Schema({
   name: String,
   company: String,
   email: String,
@@ -12,4 +11,6 @@ const AttendesSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Attendee", AttendesSchema);
+mongoose.model("Attendee", AttendeeSchema)
+
+module.exports = AttendeeSchema;

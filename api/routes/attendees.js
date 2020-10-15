@@ -2,30 +2,33 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Attendee = require("../models/attendee");
-const Talk = require("../models/talk");
+const Room = require("../models/room");
 
 //Routes
-//Gets the list of attendees
+
+//Gets the list of all attendees
 router.get("/", async (req, res) => {
   try {
-    const attendee = await Attendee.find();
-    res.json(attendee);
+    const attendees = await Attendee.find();
+    res.json(attendees);
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: err });
   }
 });
 
+// TODO: Add status 200 to successful calls
+
 // Add an attendee
-router.post("/", async (req, res) => {
+router.post("/add", async (req, res) => {
   const attendee = new Attendee({
     name: req.body.name,
     company: req.body.company,
     email: req.body.email,
   });
   try {
-    const savedattendee = await attendee.save();
-    res.json(savedattendee);
+    const savedAttendee = await attendee.save();
+    res.status(200).json(savedAttendee);
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: err });
@@ -36,25 +39,12 @@ router.post("/", async (req, res) => {
 router.get("/:attendeeId", async (req, res) => {
   try {
     const attendee = await Attendee.findById(req.params.attendeeId);
-    res.json(attendee);
+    res.status(200).json(attendee);
     // res.status(200).json(doc);
   } catch (err) {
     res.json({ message: err });
     res.status(500).json({ error: err });
   }
 });
-
-// //PATCH route
-// router.patch("/:confId", (req, res, next) => {
-//   res.status(200).json({
-//     message: "Updated product!",
-//   });
-// });
-
-// router.delete("/:confId", (req, res, next) => {
-//   res.status(200).json({
-//     message: "Delete product!",
-//   });
-// });
 
 module.exports = router;
