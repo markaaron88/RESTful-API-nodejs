@@ -8,7 +8,7 @@ const Room = require("../models/room");
 router.get("/", async (req, res) => {
   try {
     const attendees = await Attendee.find();
-    res.json(attendees);
+    res.status(200).json(attendees);
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: err });

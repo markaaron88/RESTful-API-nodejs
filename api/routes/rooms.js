@@ -36,7 +36,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-// 
+// Add an attendee to a room(talk)
 router.post("/add/:attendeeId/:roomId", async (req, res) => {
   try {
     const attendee = await Attendee.findById(req.params.attendeeId);
@@ -50,7 +50,7 @@ router.post("/add/:attendeeId/:roomId", async (req, res) => {
   }
 });
 
-// 
+// Remove an attendee to a room(talk)
 router.post("/remove/:attendeeId/:roomId", async (req, res) => {
   try {
     const room = await Room.findById(req.params.roomId);
