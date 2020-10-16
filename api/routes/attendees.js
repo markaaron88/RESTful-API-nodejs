@@ -15,8 +15,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// TODO: Add status 200 to successful calls
-
 // Add an attendee
 router.post("/add", async (req, res) => {
   const attendee = new Attendee({
@@ -33,12 +31,11 @@ router.post("/add", async (req, res) => {
   }
 });
 
-//GET specific attendee by Id
+//Get specific attendee by Id
 router.get("/:attendeeId", async (req, res) => {
   try {
     const attendee = await Attendee.findById(req.params.attendeeId);
     res.status(200).json(attendee);
-    // res.status(200).json(doc);
   } catch (err) {
     res.json({ message: err });
     res.status(500).json({ error: err });
