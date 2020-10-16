@@ -12,6 +12,5 @@ const AttendeeSchema = new Schema({
 });
 
 mongoose.model("Attendee", AttendeeSchema);
-
 module.exports = mongoose.model("Attendee", AttendeeSchema);
 module.exports.AttendeeSchema = AttendeeSchema;
