@@ -1,4 +1,4 @@
-# Backend Developer:Assessment
+# RESTful API using Node.js and MongoDB
 
 ## Install and Run
 
